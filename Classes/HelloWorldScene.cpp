@@ -1,4 +1,5 @@
 #include "HelloWorldScene.h"
+#include"game\scene\control\scene_layer_mgr.h"
 
 Scene* HelloWorld::createScene()
 {
@@ -33,6 +34,8 @@ bool HelloWorld::init()
 
 	float layerWidth = 868;
 	float layerHeight = 680;
+
+	SceneLayerMgr::getInstance()->Init(this);
 
 	auto layer = DrawLayer::create(Color4B(255, 255, 255, 255), layerWidth, layerHeight);
 	layer->setPosition(origin.x, origin.y);

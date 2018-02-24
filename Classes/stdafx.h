@@ -7,6 +7,7 @@
 #include"ui\CocosGUI.h"
 #include"math.h"
 #include<random>
+#include<map>
 
 
 USING_NS_CC;
@@ -16,6 +17,12 @@ using namespace ui;
 #define PI 3.1415926
 
 typedef std::mt19937 RngT;
+
+enum GameSceneObjType{
+	MONSTER,
+	PLAYER,
+	MAINPLAYER
+};
 
 
 

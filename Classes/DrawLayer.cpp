@@ -1,4 +1,6 @@
 #include"DrawLayer.h"
+#include"game\scene\control\scene_map_mgr.h"
+#include"game\scene\control\scene_object_mgr.h"
 
 DrawLayer * DrawLayer::create(const Color4B& color, GLfloat width, GLfloat height)
 {
@@ -38,6 +40,8 @@ bool DrawLayer::initWithColor(const Color4B& color, GLfloat width, GLfloat heigh
 	SceneMonster* monster = SceneMonster::create();
 	monster->setPosition(glwidth / 2, glheight / 2);
 	this->addChild(monster);
+
+	SceneObjectMgr::getInstance()->CreateObject(GameSceneObjType::MONSTER, 100);
 
 	listener = EventListenerTouchOneByOne::create();
 	listener->onTouchBegan = [](Touch* touch, Event* event){

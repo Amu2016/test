@@ -3,7 +3,6 @@
 
 #include"graphic\GraphRender.h"
 #include"NavMesh\FindPath.h"
-#include"game\scene\control\scene_map_mgr.h"
 #include"game\scene\obj\scene_monster.h"
 //#include"NavMesh\Delaunay.h"
 
