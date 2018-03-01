@@ -13,7 +13,11 @@ SceneFightObject* SceneFightObject::create(){
 bool SceneFightObject::init(){
 	if (!SceneActiveObject::init())
 		return false;
-
+	CCLOG("SceneFightObject::init");
 
 	return true;
+}
+
+void SceneFightObject::update(float delta){
+	SceneActiveObject::update(delta);
 }

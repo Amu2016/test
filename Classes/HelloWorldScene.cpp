@@ -1,5 +1,6 @@
 #include "HelloWorldScene.h"
 #include"game\scene\control\scene_layer_mgr.h"
+#include"game\scene\control\scene_object_mgr.h"
 
 Scene* HelloWorld::createScene()
 {
@@ -39,9 +40,15 @@ bool HelloWorld::init()
 
 	auto layer = DrawLayer::create(Color4B(255, 255, 255, 255), layerWidth, layerHeight);
 	layer->setPosition(origin.x, origin.y);
-	this->addChild(layer, 1);
-    
+	//this->addChild(layer);
+	SceneLayerMgr::getInstance()->addLayerMap(layer);
+	scheduleUpdate();
     return true;
+}
+
+void HelloWorld::update(float delta){
+	SceneLayerMgr::getInstance()->update(delta);
+	SceneObjectMgr::getInstance()->update(delta);
 }
 
 

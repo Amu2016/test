@@ -1,5 +1,4 @@
 #include"scene_active_object.h"
-#include"game\scene\fsm\MoveRule.h"
 
 SceneActiveObject* SceneActiveObject::create(){
 	SceneActiveObject* obj = new SceneActiveObject();
@@ -14,7 +13,13 @@ SceneActiveObject* SceneActiveObject::create(){
 bool SceneActiveObject::init(){
 	if (!SceneBaseObject::init())
 		return false;
-
+	CCLOG("SceneActiveObject::init");
+	moveRule = new MoveRule(this);
 
 	return true;
+}
+
+void SceneActiveObject::update(float delta){
+	SceneBaseObject::update(delta);
+	moveRule->update(delta);
 }

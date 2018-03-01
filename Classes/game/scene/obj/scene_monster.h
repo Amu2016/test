@@ -13,6 +13,8 @@ public:
 
 	virtual bool init();
 
+	virtual void update(float delta);
+
 	void initModel();
 
 private:

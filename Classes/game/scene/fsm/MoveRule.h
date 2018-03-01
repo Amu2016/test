@@ -15,8 +15,8 @@ public:
 		_object(obj),
 		_state(GlobalState::WANDER),
 		wanderJitter(30.0f),
-		wanderRadius(120.0f),
-		wanderDistance(130.0f),
+		wanderRadius(110.0f),
+		wanderDistance(120.0f),
 		rng(RngT(random_device()())),
 		_mass(1.0f),
 		//_maxSpeed(getRandomFloat(rng, 90.0f, 120.0f)),
@@ -55,7 +55,7 @@ public:
 
 	Vec2 FollowPath();
 
-	void updata(float delta);
+	void update(float delta);
 
 
 	~MoveRule(){}

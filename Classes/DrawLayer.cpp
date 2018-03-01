@@ -37,11 +37,14 @@ bool DrawLayer::initWithColor(const Color4B& color, GLfloat width, GLfloat heigh
 		return false;
 	}
 
-	SceneMonster* monster = SceneMonster::create();
-	monster->setPosition(glwidth / 2, glheight / 2);
-	this->addChild(monster);
+	//SceneMonster* monster = SceneMonster::create();
+	//monster->setPosition(glwidth / 2, glheight / 2);
+	//this->addChild(monster);
 
-	SceneObjectMgr::getInstance()->CreateObject(GameSceneObjType::MONSTER, 100);
+
+	for (int i = 0; i < 20; i++){
+		SceneObjectMgr::getInstance()->CreateObject(GameSceneObjType::MONSTER, i);
+	}
 
 	listener = EventListenerTouchOneByOne::create();
 	listener->onTouchBegan = [](Touch* touch, Event* event){

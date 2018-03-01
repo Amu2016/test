@@ -17,3 +17,7 @@ bool SceneBaseObject::init(){
 
 	return true;
 }
+
+void SceneBaseObject::update(float delta){
+	//CCLOG("SceneBaseObject::update");
+}

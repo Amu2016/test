@@ -28,20 +28,20 @@ union GameObj{
 
 class SceneObjFactoryList{
 public:
-	typedef function<GameObj()> CreateFun;
+	typedef function<SceneBaseObject*()> CreateFun;
 public:
-	SceneObjFactoryList(CreateFun fun, map<int, GameObj>* list):
+	SceneObjFactoryList(CreateFun fun, map<int, SceneBaseObject*>* list) :
 		createFun(fun),
 		refHashList(list)
 	{}
 
-	GameObj CreateObj(const int gid){
-		GameObj obj;
+	SceneBaseObject* CreateObj(const int gid){
+		SceneBaseObject* obj;
 		auto iter = sceneObjHashList.find(gid);
 		if (iter == sceneObjHashList.end()){
 			obj = createFun();
-			sceneObjHashList.insert(map<int, GameObj>::value_type(gid, obj));
-			refHashList->insert(map<int, GameObj>::value_type(gid, obj));
+			sceneObjHashList.insert(map<int, SceneBaseObject*>::value_type(gid, obj));
+			refHashList->insert(map<int, SceneBaseObject*>::value_type(gid, obj));
 		}
 		else{
 			obj = iter->second;
@@ -50,8 +50,8 @@ public:
 	}
 
 private:
-	map<int, GameObj> sceneObjHashList;
-	map<int, GameObj>* refHashList;
+	map<int, SceneBaseObject*> sceneObjHashList;
+	map<int, SceneBaseObject*>* refHashList;
 	CreateFun createFun;
 };
 
@@ -63,12 +63,12 @@ public:
 	}
 
 	void CreateObject(const GameSceneObjType type, const int gid){
-		GameObj obj;
+		SceneBaseObject* obj;
 		switch (type)
 		{
 		case MONSTER:
 			obj = oMonsterHashList->CreateObj(gid);
-			obj.getObj()->setPosition(100, 200);
+			obj->setPosition(0, 0);
 			CCLOG("---------------Create   monster----------");
 			break;
 		case PLAYER:
@@ -78,7 +78,13 @@ public:
 		default:
 			break;
 		}
-		SceneLayerMgr::getInstance()->addMiddle(obj.getObj());
+		SceneLayerMgr::getInstance()->addMiddle(obj);
+	}
+
+	void update(float delta){
+		for (iter = refHashList->begin(); iter != refHashList->end(); iter++){
+			iter->second->update(delta);
+		}
 	}
 
 	~SceneObjectMgr(){
@@ -87,16 +93,17 @@ public:
 	}
 
 public:
-	map<int, GameObj>* refHashList;
+	map<int, SceneBaseObject*>* refHashList;
+	map<int, SceneBaseObject*>::iterator iter;
 
 	SceneObjFactoryList* oMonsterHashList;
 
 private:
 	SceneObjectMgr():
-		refHashList(new map<int, GameObj>)
+		refHashList(new map<int, SceneBaseObject*>)
 	{
 		oMonsterHashList = new SceneObjFactoryList([](){
-			GameObj obj = SceneMonster::create();
+			SceneBaseObject* obj = SceneMonster::create();
 			return obj;
 		}, refHashList);
 	}

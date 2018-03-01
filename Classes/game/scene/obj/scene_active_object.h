@@ -4,17 +4,34 @@
 #include"stdafx.h"
 #include"scene_base_object.h"
 
-class MoveRule;
+#include"game\scene\fsm\MoveRule.h"
 
 class SceneActiveObject : public SceneBaseObject{
 public:
-	SceneActiveObject(){}
+	SceneActiveObject():
+		_mass(1.0f),
+		_maxSpeed(getRandomFloat(rng, 90.0f, 120.0f)),
+		_minSpeed(10.0f),
+		_maxForce(100.0f)
+	{
+		vVelocity = Vec2(
+			getRandomFloat(rng, -10.0f, 10.0f),
+			getRandomFloat(rng, -10.0f, 10.0f));
+		vHeading = vVelocity.getNormalized();
+		vSide = vHeading.getPerp();
+		monsterNode = Node::create();
+		addChild(monsterNode);
+	}
 
 	static SceneActiveObject* create();
 
 	virtual bool init();
 
+	virtual void update(float delta);
 
+	~SceneActiveObject(){
+		delete moveRule;
+	}
 
 public:
 	inline void setVelocity(const Vec2& vel){ vVelocity = vel; }
@@ -35,7 +52,13 @@ public:
 	inline float getMaxForce()const{ return _maxForce; }
 	inline float getMaxTurnRate()const{ return _maxTurnRate; }
 
+protected:
+	Node* monsterNode;
+
 private:
+	MoveRule* moveRule;
+
+
 	RngT rng;
 
 	Vec2 vVelocity;//ËÙÂÊ 

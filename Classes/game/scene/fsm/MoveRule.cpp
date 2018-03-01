@@ -75,7 +75,7 @@ Vec2 MoveRule::FollowPath(){
 	return Vec2();
 }
 
-void MoveRule::updata(float delta){
+void MoveRule::update(float delta){
 	Vec2 accelerartion = Calculate() / _mass;
 	_vVelocity += accelerartion*delta;
 

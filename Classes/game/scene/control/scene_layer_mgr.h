@@ -26,8 +26,16 @@ public:
 		oSceneRoot->addChild(oLayerTop);
 	}
 
+	void addLayerMap(Node* node){
+		oLayerMap->addChild(node);
+	}
+
 	void addMiddle(Node* node){
 		oLayerMiddle->addChild(node);
+	}
+
+	void update(float delta){
+
 	}
 
 private:
