@@ -1,0 +1,329 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="win32">
+      <UniqueIdentifier>{84a8ebd7-7cf0-47f6-b75e-d441df67da40}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="resource">
+      <UniqueIdentifier>{715254bc-d70b-4ec5-bf29-467dd3ace079}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src">
+      <UniqueIdentifier>{bb6c862e-70e9-49d9-81b7-3829a6f50471}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\utils">
+      <UniqueIdentifier>{3242a551-6e1d-4f76-9755-403fe73f0e50}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\graphic">
+      <UniqueIdentifier>{8ccbc4fe-cd83-481b-9a22-2a1147d8396c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\NavMesh">
+      <UniqueIdentifier>{353cb78f-14b2-40a7-bbb4-b74766640c27}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\game">
+      <UniqueIdentifier>{96abc252-e286-4994-ab6e-e5f5fa3323d6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\game\scene">
+      <UniqueIdentifier>{5859693e-4468-4e77-8a31-6089785bfcaa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\game\model">
+      <UniqueIdentifier>{ee9500a3-8029-45f5-b92e-1a9642f7da5c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\game\scene\obj">
+      <UniqueIdentifier>{445d6334-a945-47a3-8910-19cb3b710f2f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\game\scene\control">
+      <UniqueIdentifier>{8b653349-8986-4dfd-80aa-cba474e3d890}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\game\ui">
+      <UniqueIdentifier>{c687174a-8844-4383-bcdd-a88690eb76d8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\game\scene\fsm">
+      <UniqueIdentifier>{69d5a110-6c3e-4966-bdcb-a3897fc9f203}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\game\scene\fsm\monster">
+      <UniqueIdentifier>{dd28759c-1735-4d91-a3da-3de14484d0f4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\utils\2d">
+      <UniqueIdentifier>{c1059e88-c1d0-42c6-9b23-5c99ab857275}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\net">
+      <UniqueIdentifier>{d5c66175-6d70-4bac-ae0e-b1d54ab3b7a1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\CocosNet">
+      <UniqueIdentifier>{eb0f343d-6f27-4a72-b85b-53dde8206b7c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="bean">
+      <UniqueIdentifier>{35358dfd-6c14-43a3-a1e7-cdd63ad04a28}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\game\ui\base">
+      <UniqueIdentifier>{b82ddfee-ab28-474a-88ac-a9eadcdf824e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\game\ui\utils">
+      <UniqueIdentifier>{c73c2837-0d2c-49ff-832a-f9746de868fa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="bean\base">
+      <UniqueIdentifier>{4736c034-3a1e-45bb-8eed-08119fb387a6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="visibility">
+      <UniqueIdentifier>{2b46b76c-a710-40a0-aedc-0cd087208be3}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp">
+      <Filter>win32</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\AppDelegate.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\HelloWorldScene.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\utils\BinaryHeap.cpp">
+      <Filter>src\utils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\graphic\MyPolygon.cpp">
+      <Filter>src\graphic</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\graphic\Vector2f.cpp">
+      <Filter>src\graphic</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\graphic\Line2D.cpp">
+      <Filter>src\graphic</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\graphic\MyTriangle.cpp">
+      <Filter>src\graphic</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\utils\MyHeap.cpp">
+      <Filter>src\utils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\DrawLayer.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\graphic\GraphRender.cpp">
+      <Filter>src\graphic</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\graphic\MyCircle.cpp">
+      <Filter>src\graphic</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\NavMesh\Delaunay.cpp">
+      <Filter>src\NavMesh</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\NavMesh\Cell.cpp">
+      <Filter>src\NavMesh</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\NavMesh\FindPath.cpp">
+      <Filter>src\NavMesh</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\game\scene\obj\scene_active_object.cpp">
+      <Filter>src\game\scene\obj</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\game\scene\obj\scene_base_object.cpp">
+      <Filter>src\game\scene\obj</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\game\scene\obj\scene_fight_object.cpp">
+      <Filter>src\game\scene\obj</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\game\scene\obj\scene_monster.cpp">
+      <Filter>src\game\scene\obj</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\game\scene\fsm\monster\MonsterState.cpp">
+      <Filter>src\game\scene\fsm\monster</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\game\scene\fsm\MoveRule.cpp">
+      <Filter>src\game\scene\fsm</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\net\SocketTcp.cpp">
+      <Filter>src\net</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\CocosNet\CCBuffer.cpp">
+      <Filter>src\CocosNet</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\CocosNet\CCInetAddress.cpp">
+      <Filter>src\CocosNet</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\CocosNet\CCNetDelegate.cpp">
+      <Filter>src\CocosNet</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\CocosNet\CCSocket.cpp">
+      <Filter>src\CocosNet</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\bean\test.pb.cc">
+      <Filter>bean</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\game\ui\utils\tipMgr.cpp">
+      <Filter>src\game\ui\utils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\net\MsgMgr.cpp">
+      <Filter>src\net</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\net\MessagePool.cpp">
+      <Filter>src\net</Filter>
+    </ClCompile>
+    <ClCompile Include="..\Classes\bean\login.pb.cc" />
+    <ClCompile Include="..\Classes\game\ui\base\shadow.cpp">
+      <Filter>src\game\ui\base</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="main.h">
+      <Filter>win32</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\AppDelegate.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\HelloWorldScene.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\utils\BinaryHeap.h">
+      <Filter>src\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\graphic\MyPolygon.h">
+      <Filter>src\graphic</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\stdafx.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\graphic\Vector2f.h">
+      <Filter>src\graphic</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\graphic\Line2D.h">
+      <Filter>src\graphic</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\graphic\MyTriangle.h">
+      <Filter>src\graphic</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\utils\MyHeap.h">
+      <Filter>src\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\DrawLayer.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\graphic\GraphRender.h">
+      <Filter>src\graphic</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\NavMesh\Delaunay.h">
+      <Filter>src\NavMesh</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\graphic\MyCircle.h">
+      <Filter>src\graphic</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\NavMesh\Cell.h">
+      <Filter>src\NavMesh</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\NavMesh\FindPath.h">
+      <Filter>src\NavMesh</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\game\scene\obj\scene_active_object.h">
+      <Filter>src\game\scene\obj</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\game\scene\obj\scene_base_object.h">
+      <Filter>src\game\scene\obj</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\game\scene\obj\scene_fight_object.h">
+      <Filter>src\game\scene\obj</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\game\scene\obj\scene_player.h">
+      <Filter>src\game\scene\obj</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\game\scene\obj\scene_monster.h">
+      <Filter>src\game\scene\obj</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\game\scene\fsm\State.h">
+      <Filter>src\game\scene\fsm</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\game\scene\fsm\StateMachine.h">
+      <Filter>src\game\scene\fsm</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\game\scene\fsm\monster\MonsterState.h">
+      <Filter>src\game\scene\fsm\monster</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\game\scene\control\scene_map_mgr.h">
+      <Filter>src\game\scene\control</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\game\scene\fsm\MoveRule.h">
+      <Filter>src\game\scene\fsm</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\utils\2d\C2DMatrix.h">
+      <Filter>src\utils\2d</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\utils\2d\Transformations.h">
+      <Filter>src\utils\2d</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\game\scene\control\scene_object_mgr.h">
+      <Filter>src\game\scene\control</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\game\scene\control\scene_layer_mgr.h">
+      <Filter>src\game\scene\control</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\utils\QuadTree.h">
+      <Filter>src\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\net\SocketTcp.h">
+      <Filter>src\net</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\CocosNet\CCBuffer.h">
+      <Filter>src\CocosNet</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\CocosNet\CCInetAddress.h">
+      <Filter>src\CocosNet</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\CocosNet\CCNetDelegate.h">
+      <Filter>src\CocosNet</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\CocosNet\CCNetMacros.h">
+      <Filter>src\CocosNet</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\CocosNet\CCSocket.h">
+      <Filter>src\CocosNet</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\CocosNet\cocos-net.h">
+      <Filter>src\CocosNet</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\bean\test.pb.h">
+      <Filter>bean</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\game\ui\utils\tipMgr.h">
+      <Filter>src\game\ui\utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\gameMsg_H.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\net\MsgMgr.h">
+      <Filter>src\net</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\net\MessagePool.h">
+      <Filter>src\net</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\bean\test_message.h">
+      <Filter>bean</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\bean\base\base_message.h">
+      <Filter>bean\base</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\bean\login.pb.h" />
+    <ClInclude Include="..\Classes\bean\login_message.h" />
+    <ClInclude Include="..\Classes\visibility\floats.hpp">
+      <Filter>visibility</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\visibility\primitives.hpp">
+      <Filter>visibility</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\visibility\vector2.hpp">
+      <Filter>visibility</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\visibility\visibility.hpp">
+      <Filter>visibility</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\game\ui\base\shadow.h">
+      <Filter>src\game\ui\base</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Classes\game\ui\utils\shaderMgr.h">
+      <Filter>src\game\ui\utils</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="game.rc">
+      <Filter>resource</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+</Project>

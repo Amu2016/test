@@ -1,4 +1,4 @@
-#ifndef _scene_layer_mgr_h_
+﻿#ifndef _scene_layer_mgr_h_
 #define _scene_layer_mgr_h_
 
 #include"DrawLayer.h"
@@ -34,8 +34,16 @@ public:
 		oLayerMiddle->addChild(node);
 	}
 
+	void addTop(Node* node) {
+		oLayerTop->addChild(node);
+	}
+
 	void update(float delta){
 
+	}
+
+	Layer* getLayerMap() {
+		return oLayerTop;
 	}
 
 private:

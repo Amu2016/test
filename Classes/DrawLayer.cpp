@@ -1,6 +1,8 @@
-#include"DrawLayer.h"
+Ôªø#include"DrawLayer.h"
 #include"game\scene\control\scene_map_mgr.h"
 #include"game\scene\control\scene_object_mgr.h"
+#include"net/MsgMgr.h"
+#include"bean/test_message.h"
 
 DrawLayer * DrawLayer::create(const Color4B& color, GLfloat width, GLfloat height)
 {
@@ -28,11 +30,15 @@ bool DrawLayer::initWithColor(const Color4B& color, GLfloat width, GLfloat heigh
 	vec.push_back(Vector2f(glwidth, 0));
 	vec.push_back(Vector2f(glwidth, glheight));
 	vec.push_back(Vector2f(0, glheight));
+	GraphRender::getInstance()->drawLine(this, Vector2f(0, 0), Vector2f(glwidth, 0), Color4F(0, 1, 1, 0.2f));
+	GraphRender::getInstance()->drawLine(this, Vector2f(glwidth, 0), Vector2f(glwidth, glheight), Color4F(0, 1, 1, 0.2f));
+	GraphRender::getInstance()->drawLine(this, Vector2f(glwidth, glheight), Vector2f(0, glheight), Color4F(0, 1, 1, 0.2f));
+	GraphRender::getInstance()->drawLine(this, Vector2f(0, glheight), Vector2f(0, 0), Color4F(0, 1, 1, 0.2f));
 
 	MyPolygon polygon(4, vec);
 	polygonV.push_back(polygon);
 
-	if (!LayerColor::initWithColor(color, width, height))
+	if (!LayerColor::initWithColor(color, width + 100, height + 80))
 	{
 		return false;
 	}
@@ -42,7 +48,7 @@ bool DrawLayer::initWithColor(const Color4B& color, GLfloat width, GLfloat heigh
 	//this->addChild(monster);
 
 
-	for (int i = 0; i < 20; i++){
+	for (int i = 0; i < 1; i++){
 		SceneObjectMgr::getInstance()->CreateObject(GameSceneObjType::MONSTER, i);
 	}
 
@@ -87,10 +93,10 @@ bool DrawLayer::initWithColor(const Color4B& color, GLfloat width, GLfloat heigh
 			CCLOG("PtC %f, %f", trg._pointC.x, trg._pointC.y);
 		}
 
-		MapMgr::getInstance()->setPolygon(unionpolygonV);
-		MapMgr::getInstance()->setTriangleV(triangleV);
+		MapMgr::getInstance()->setPolygon(&unionpolygonV);
+		MapMgr::getInstance()->setTriangleV(&triangleV);
 
-		//ππΩ®—∞¬∑ ˝æ›
+		//ÊûÑÂª∫ÂØªË∑ØÊï∞ÊçÆ
 		MyTriangle trg;
 		Cell* cell;
 		for (unsigned int i = 0; i < triangleV.size(); i++){
@@ -126,8 +132,16 @@ bool DrawLayer::initWithColor(const Color4B& color, GLfloat width, GLfloat heigh
 	});
 	menuLabel3->setPositionY(-menuLabel1->getContentSize().height * 3);
 
+	auto lable4 = Label::create("Send", "fonts/arial.ttf", 20);
+	lable4->setTextColor(Color4B::RED);
+	auto menuLabel4 = MenuItemLabel::create(lable4, [=](Ref* ref) {
+		auto msg = test_ReqMessage();
+		MsgMgr::getInstance()->Send(&msg);
+	});
+	menuLabel4->setPositionY(-menuLabel1->getContentSize().height * 5);
 
-	auto menu = Menu::create(menuLabel1, menuLabel2, menuLabel3, NULL);
+
+	auto menu = Menu::create(menuLabel1, menuLabel2, menuLabel3, menuLabel4, NULL);
 	menu->setPosition(Vec2(width + menuLabel1->getContentSize().width / 2, height - menuLabel1->getContentSize().height / 2));
 	this->addChild(menu, 20);
 
@@ -191,7 +205,7 @@ void DrawLayer::unionAll(){
 		for (unsigned int j = 1; j < unionpolygonV.size(); j++){
 			auto p1 = &unionpolygonV[j];
 			if (p0 != p1 && !p0->isCW() && !p1->isCW()){
-				vector<MyPolygon>* v = p0->combination(*p1);//∫œ≤¢
+				vector<MyPolygon>* v = p0->combination(*p1);//ÂêàÂπ∂
 
 				if (v != nullptr && v->size() > 0){
 					if (i < j)
@@ -204,7 +218,7 @@ void DrawLayer::unionAll(){
 
 					delete v;
 
-					i = 0; // ÷ÿ–¬ø™ º
+					i = 0; // ÈáçÊñ∞ÂºÄÂßã
 					break;
 				}
 			}
@@ -231,7 +245,7 @@ void DrawLayer::changeTouchType(const TouchType& type){
 				auto x = touch->getLocation().x - this->getPosition().x;
 				auto y = touch->getLocation().y - this->getPosition().y;
 				//CCLOG("pos    %f   %f", x, y);
-				if (x < 0 || x > glwidth || y < 0 || y > glheight)
+				if (x < 0 || x > glwidth + 100 || y < 0 || y > glheight + 80)
 					return;
 				this->drawPoint(Vector2f(x, y));
 			}
@@ -253,8 +267,8 @@ void DrawLayer::changeTouchType(const TouchType& type){
 
 					GraphRender::getInstance()->drawPoint(this, endPot, 8, Color4F::RED);
 
-					FindPath find(cellV);
-					auto path = find.find(startPot, endPot);
+					FindPath findPath(cellV);
+					auto path = findPath.find(startPot, endPot);
 
 					for (unsigned int i = 1; i < path.size(); i++){
 						GraphRender::getInstance()->drawLine(this, Vector2f(path[i - 1].x, path[i - 1].y),

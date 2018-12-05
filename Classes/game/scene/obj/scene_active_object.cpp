@@ -13,7 +13,7 @@ SceneActiveObject* SceneActiveObject::create(){
 bool SceneActiveObject::init(){
 	if (!SceneBaseObject::init())
 		return false;
-	CCLOG("SceneActiveObject::init");
+	//CCLOG("SceneActiveObject::init");
 	moveRule = new MoveRule(this);
 
 	return true;

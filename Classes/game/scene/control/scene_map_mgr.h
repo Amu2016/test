@@ -1,4 +1,4 @@
-#ifndef _scene_map_mgr_h_
+ï»¿#ifndef _scene_map_mgr_h_
 #define _scene_map_mgr_h_
 
 #include"graphic\MyPolygon.h"
@@ -11,26 +11,28 @@ public:
 		return mapMgr;
 	}
 
-	void setPolygon(const vector<MyPolygon>& vecPoly){
+	void setPolygon(vector<MyPolygon>* vecPoly){
 		polygonV = vecPoly;
 	}
-	void setTriangleV(const vector<MyTriangle>& vecTrig){
+	void setTriangleV(vector<MyTriangle>* vecTrig){
 		triangleV = vecTrig;
 	}
 
-	vector<MyPolygon> getPolygon() const{ return polygonV; }
-	vector<MyTriangle> getTriangle() const{ return triangleV; }
+	vector<MyPolygon>* getPolygon() const{ return polygonV; }
+	vector<MyTriangle>* getTriangle() const{ return triangleV; }
 
 public:
 	GLfloat glwidth;
 	GLfloat glheight;
 private:
-	MapMgr(){}
+	MapMgr():
+		polygonV(nullptr)
+	{}
 	const MapMgr operator=(const MapMgr&);
 
 
-	vector<MyPolygon> polygonV;  //ËùÓĞ¶à±ßĞÎÕÏ°­Îï
-	vector<MyTriangle> triangleV;  //DelaunayÉú³ÉµÄÈı½ÇĞÎÍø¸ñ
+	vector<MyPolygon>* polygonV;  //æ‰€æœ‰å¤šè¾¹å½¢éšœç¢ç‰©
+	vector<MyTriangle>* triangleV;  //Delaunayç”Ÿæˆçš„ä¸‰è§’å½¢ç½‘æ ¼
 };
 
 #endif _scene_map_mgr_h_

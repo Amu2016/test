@@ -1,6 +1,11 @@
-#include "HelloWorldScene.h"
+﻿#include "HelloWorldScene.h"
 #include"game\scene\control\scene_layer_mgr.h"
 #include"game\scene\control\scene_object_mgr.h"
+#include"net/MsgMgr.h"
+
+
+#include"bean/test.pb.h"
+
 
 Scene* HelloWorld::createScene()
 {
@@ -32,16 +37,28 @@ bool HelloWorld::init()
     menu->setPosition(Vec2::ZERO);
     this->addChild(menu, 1);
 
+	SceneLayerMgr::getInstance()->Init(this);
+
+	unsigned short part = 8888;
+
+	//MsgMgr::getInstance()->connect("192.168.51.171", part, [=](void) {
+	//	float layerWidth = 868;
+	//	float layerHeight = 680;
+	//	auto layer = DrawLayer::create(Color4B(255, 255, 255, 255), layerWidth, layerHeight);
+	//	layer->setPosition(origin.x, origin.y);
+	//	//this->addChild(layer);
+	//	SceneLayerMgr::getInstance()->addLayerMap(layer);
+	//});
 
 	float layerWidth = 868;
 	float layerHeight = 680;
-
-	SceneLayerMgr::getInstance()->Init(this);
-
 	auto layer = DrawLayer::create(Color4B(255, 255, 255, 255), layerWidth, layerHeight);
 	layer->setPosition(origin.x, origin.y);
 	//this->addChild(layer);
 	SceneLayerMgr::getInstance()->addLayerMap(layer);
+
+
+
 	scheduleUpdate();
     return true;
 }

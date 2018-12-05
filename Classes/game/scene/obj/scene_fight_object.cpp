@@ -13,7 +13,7 @@ SceneFightObject* SceneFightObject::create(){
 bool SceneFightObject::init(){
 	if (!SceneActiveObject::init())
 		return false;
-	CCLOG("SceneFightObject::init");
+	//CCLOG("SceneFightObject::init");
 
 	return true;
 }

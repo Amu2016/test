@@ -1,4 +1,4 @@
-#include"GraphRender.h"
+﻿#include"GraphRender.h"
 
 //DrawNode* GraphRender::drawPoint(const Vec2& pt, const float pointSize, const Color4F& color){
 //	auto point = DrawNode::create();
@@ -54,17 +54,25 @@ DrawNode* GraphRender::fillPolygon(Node* parent, const MyPolygon& poly, const Co
 	return polygon;
 }
 
-void GraphRender::fillTriangle(Node* parent, DrawNode* poly, const vector<Vector2f>& vec, const Color4F &color){
-	Vec2* pointArray = new Vec2[vec.size()];
-	for (unsigned int i = 0; i < vec.size(); i++){
+void GraphRender::fillTriangle(DrawNode* poly, const vector<Vector2f>& vec, const Color4F &color){
+	//Vec2* pointArray = new Vec2[vec.size()];
+	//for (unsigned int i = 0; i < vec.size(); i++){
+	//	pointArray[i] = Vec2(vec[i].x, vec[i].y);
+	//}
+	//poly->drawSolidPoly(pointArray, 3, color);
+	poly->drawTriangle(Vec2(vec[0].x, vec[0].y),Vec2(vec[1].x, vec[1].y), Vec2(vec[2].x, vec[2].y), color);
+	//delete[]pointArray;
+}
+
+void GraphRender::drawPolygon(DrawNode* poly, const vector<Vector2f>& vec, const Color4F &color) {
+	for (unsigned int i = 0; i < vec.size(); i++) {
 		pointArray[i] = Vec2(vec[i].x, vec[i].y);
 	}
 	poly->drawSolidPoly(pointArray, 3, color);
-	delete[]pointArray;
 }
 
 DrawNode* GraphRender::fillTriangle(Node* parent, const vector<Vector2f>& vec, const Color4F &color){
-	Vec2* pointArray = new Vec2[vec.size()];
+	//Vec2* pointArray = new Vec2[vec.size()];
 	for (unsigned int i = 0; i < vec.size(); i++){
 		pointArray[i] = Vec2(vec[i].x, vec[i].y);
 	}
@@ -72,7 +80,7 @@ DrawNode* GraphRender::fillTriangle(Node* parent, const vector<Vector2f>& vec, c
 	auto triangle = DrawNode::create();
 	triangle->drawSolidPoly(pointArray, 3, color);
 	parent->addChild(triangle);
-	delete []pointArray;
+	//delete []pointArray;
 	return triangle;
 }
 

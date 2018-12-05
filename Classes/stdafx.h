@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 #ifndef STDAFX_H
 #define STDAFX_H
 
@@ -9,14 +9,18 @@
 #include<random>
 #include<map>
 
+//#pragma execution_character_set("utf-8")
+
 
 USING_NS_CC;
 using namespace std;
 using namespace ui;
 
 #define PI 3.1415926
+#define BUFFER_SIZE 8192
 
 typedef std::mt19937 RngT;
+
 
 enum GameSceneObjType{
 	MONSTER,

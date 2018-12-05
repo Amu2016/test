@@ -1,4 +1,4 @@
-#ifndef _GRAPHRENDER_H_
+﻿#ifndef _GRAPHRENDER_H_
 #define _GRAPHRENDER_H_
 
 #include"stdafx.h"
@@ -27,12 +27,16 @@ public:
 	//DrawNode* drawPolygon(const MyPolygon& polygon, const Color4F& color);
 	DrawNode* fillPolygon(Node* parent, const MyPolygon& poly, const Color4F& color);
 
-	void fillTriangle(Node* parent, DrawNode* poly, const vector<Vector2f>& vec, const Color4F &color);
+	void fillTriangle(DrawNode* poly, const vector<Vector2f>& vec, const Color4F &color);
+
+	void drawPolygon(DrawNode* poly, const vector<Vector2f>& vec, const Color4F &color);
 
 	DrawNode* fillTriangle(Node* parent, const vector<Vector2f>& vec, const Color4F &color);
 
 private:
-	GraphRender(){
+	GraphRender():
+		pointArray(new Vec2[100])
+	{
 		glBlendFunc(GL_SRC_ALPHA, GL_ONE);
 		glEnable(GL_BLEND);
 		glEnable(GL_POINT_SMOOTH);
@@ -45,6 +49,7 @@ private:
 
 private:
 	//Node* canvas;
+	Vec2 * pointArray;
 };
 
 #endif _GRAPHRENDER_H_

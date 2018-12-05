@@ -1,4 +1,4 @@
-#ifndef _MyPolygon_H_
+ï»¿#ifndef _MyPolygon_H_
 #define _MyPolygon_H_
 
 #include "stdafx.h"
@@ -15,64 +15,62 @@ public:
 	}
 
 	~MyPolygon(){
-		if (rectBox)
-			delete rectBox;
 	}
 
 	/**
-	* ÊÇ·ñÊÇ¼òµ¥¶à±ßĞÎ
+	* æ˜¯å¦æ˜¯ç®€å•å¤šè¾¹å½¢
 	*/
 	bool isSimplicity() const;
 
 	/**
-	* ½«¶à±ßĞÎµÄ¶¥µã°´ÄæÊ±ÕëÅÅĞò
+	* å°†å¤šè¾¹å½¢çš„é¡¶ç‚¹æŒ‰é€†æ—¶é’ˆæ’åº
 	*/
 	void cw();
 
 	/**
-	*ÊÇ·ñÊÇË³Ê±Õë
-	*·µ»Øtrue -Ë³Ê±Õë·½Ïò£»false -ÄæÊ±Õë·½Ïò
+	*æ˜¯å¦æ˜¯é¡ºæ—¶é’ˆ
+	*è¿”å›true -é¡ºæ—¶é’ˆæ–¹å‘ï¼›false -é€†æ—¶é’ˆæ–¹å‘
 	*/
 	bool isCW();
 
 	/**
-	* r=multiply(sp,ep,op),µÃµ½(sp-op)*(ep-op)µÄ²æ»ı
-	* r>0:epÔÚÊ¸Á¿opspµÄÄæÊ±Õë·½Ïò£»
-	* r=0£ºopspepÈıµã¹²Ïß£»
-	* r<0:epÔÚÊ¸Á¿opspµÄË³Ê±Õë·½Ïò
+	* r=multiply(sp,ep,op),å¾—åˆ°(sp-op)*(ep-op)çš„å‰ç§¯
+	* r>0:epåœ¨çŸ¢é‡opspçš„é€†æ—¶é’ˆæ–¹å‘ï¼›
+	* r=0ï¼šopspepä¸‰ç‚¹å…±çº¿ï¼›
+	* r<0:epåœ¨çŸ¢é‡opspçš„é¡ºæ—¶é’ˆæ–¹å‘
 	*/
 	float multiply(const Vector2f& sp, const Vector2f& ep, const Vector2f& op);
 
 	/**
-	* ·µ»Ø¾ØĞÎ°üÎ§ºĞ
+	* è¿”å›çŸ©å½¢åŒ…å›´ç›’
 	*/
 	Rect* rectangle();
 
 	/**
-	* ºÏ²¢Á½¸ö¶à±ßĞÎ(Weiler-AthentonËã·¨)
-	* null--Á½¸ö¶à±ßĞÎ²»Ïà½»£¬ºÏ²¢Ç°ºóÁ½¸ö¶à±ßĞÎ²»±ä
-	* Polygon--Ò»¸öĞÂµÄ¶à±ßĞÎ
+	* åˆå¹¶ä¸¤ä¸ªå¤šè¾¹å½¢(Weiler-Athentonç®—æ³•)
+	* null--ä¸¤ä¸ªå¤šè¾¹å½¢ä¸ç›¸äº¤ï¼Œåˆå¹¶å‰åä¸¤ä¸ªå¤šè¾¹å½¢ä¸å˜
+	* Polygon--ä¸€ä¸ªæ–°çš„å¤šè¾¹å½¢
 	*/
 	vector<MyPolygon>* combination(MyPolygon& polygon);
 
 	/**
-	* Éú³É¶à±ßĞÎ£¬Ë³Ê±ÕëĞò£» Éú³ÉµÄÄÚ²¿¿×¶´¶à±ßĞÎÎªÄæÊ±ÕëĞò
+	* ç”Ÿæˆå¤šè¾¹å½¢ï¼Œé¡ºæ—¶é’ˆåºï¼› ç”Ÿæˆçš„å†…éƒ¨å­”æ´å¤šè¾¹å½¢ä¸ºé€†æ—¶é’ˆåº
 	* @param cv0
 	* @param cv1
-	* @return ºÏ²¢ºóµÄ½á¹û¶à±ßĞÎÊı×é(¿ÉÄÜÓĞ¶à¸ö¶à±ßĞÎ)
+	* @return åˆå¹¶åçš„ç»“æœå¤šè¾¹å½¢æ•°ç»„(å¯èƒ½æœ‰å¤šä¸ªå¤šè¾¹å½¢)
 	*/
 	vector<MyPolygon>* linkToPolygon(vector<MyNode*>& cv0, vector<MyNode*>& cv1);
 
 	/**
-	* Éú³É½»µã£¬²¢°´Ë³Ê±ÕëĞò²åÈëµ½¶¥µã±íÖĞ
-	* @param cv0 £¨in/out£©Ö÷¶à±ßĞÎ¶¥µã±í£¬²¢·µ»Ø²åÈë½»µãºóµÄ¶¥µã±í
-	* @param cv1 £¨in/out£©ºÏ²¢¶à±ßĞÎ¶¥µã±í£¬²¢·µ»Ø²åÈë½»µãºóµÄ¶¥µã±í
-	* @return ½»µãÊı
+	* ç”Ÿæˆäº¤ç‚¹ï¼Œå¹¶æŒ‰é¡ºæ—¶é’ˆåºæ’å…¥åˆ°é¡¶ç‚¹è¡¨ä¸­
+	* @param cv0 ï¼ˆin/outï¼‰ä¸»å¤šè¾¹å½¢é¡¶ç‚¹è¡¨ï¼Œå¹¶è¿”å›æ’å…¥äº¤ç‚¹åçš„é¡¶ç‚¹è¡¨
+	* @param cv1 ï¼ˆin/outï¼‰åˆå¹¶å¤šè¾¹å½¢é¡¶ç‚¹è¡¨ï¼Œå¹¶è¿”å›æ’å…¥äº¤ç‚¹åçš„é¡¶ç‚¹è¡¨
+	* @return äº¤ç‚¹æ•°
 	*/
 	int intersectPoint(vector<MyNode*>& cv0, vector<MyNode*>& cv1);
 
 	/**
-	* È¡µÃ½ÚµãµÄË÷Òı(ºÏ²¢¶à±ßĞÎÓÃ)
+	* å–å¾—èŠ‚ç‚¹çš„ç´¢å¼•(åˆå¹¶å¤šè¾¹å½¢ç”¨)
 	* @param cv
 	* @param node
 	* @return
@@ -91,15 +89,15 @@ public:
 	inline bool operator!=(const MyPolygon& v) const;
 
 public:
-	vector<Vector2f> vertexV; //¶¥µãÁĞ±í
-	int vertexNum; //¶¥µãÊı
+	vector<Vector2f> vertexV; //é¡¶ç‚¹åˆ—è¡¨
+	int vertexNum; //é¡¶ç‚¹æ•°
 
 	vector<DrawNode*> polyLine;
 	vector<Text*> polyPointPos;
 	DrawNode* polyFill;
 
 private:
-	Rect* rectBox; //¾ØĞÎ°üÎ§ºĞ
+	Rect* rectBox; //çŸ©å½¢åŒ…å›´ç›’
 };
 
 inline const MyPolygon MyPolygon::operator=(const MyPolygon& poly){

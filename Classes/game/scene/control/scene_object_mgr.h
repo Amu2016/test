@@ -4,6 +4,7 @@
 #include"graphic\GraphRender.h"
 #include"game\scene\obj\scene_monster.h"
 #include"scene_layer_mgr.h"
+#include"net/SocketTcp.h"
 
 union GameObj{
 	Node* gameObj;
@@ -69,7 +70,8 @@ public:
 		case MONSTER:
 			obj = oMonsterHashList->CreateObj(gid);
 			obj->setPosition(0, 0);
-			CCLOG("---------------Create   monster----------");
+			//SocketTcp::getInstance()->getSocket()->send("---------------Create   monster----------");
+			//CCLOG("---------------Create   monster----------");
 			break;
 		case PLAYER:
 			break;
